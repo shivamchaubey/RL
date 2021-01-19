@@ -1,0 +1,88 @@
+<!--
+    Date of creation: 5/II/2018
+    Application created by: Ricardo Tellez <rtellez@theconstructsim.com>
+    The Construct http://www.theconstructsim.com
+    License LGPLV3 << Basically means you can do whatever you want with this!
+-->
+
+<launch>
+    <!-- Launch the training system -->
+    <node pkg="vehicle_training" name="gym_train" type="train_vehicle_dqn.py" output="screen"/> 
+
+    <!-- training param -->
+    <param name="running_step"            type="double"   value="0.3" />
+    
+
+    <!-- Vehicle model-->
+
+     <!-- SYSTEM MODEL -->
+    <param name="lf"            type="double"   value="0.125" />
+    <param name="lr"            type="double"   value="0.125" />
+    <param name="m"             type="double"   value="1.98" />
+    <param name="Iz"            type="double"   value="0.03" />
+    <param name="Cf"            type="double"   value="68" />
+    <param name="Cr"            type="double"   value="71" />
+    <param name="mu"            type="double"   value="0.05"/>
+    
+
+    <param name="max_vel"       type="double" value="5.0" />
+    <param name="min_vel"       type="double" value="0.1" />
+    <!-- should be > 1.0 -->
+    <param name="init_vx"    type="double" value="0.0" />
+        
+    <param name="trackShape"  type="str"    value="L_shape"/>
+
+    <param name="publish_frequency" type="double" value="10.0" />
+        <param name="dt"          type="double" value="0.05" />
+        <!-- sensor freq update -->
+        <param name="gps_freq_update" type="double" value="1000.0" />
+
+        <!-- delay in the simulator -->
+        <param name="lowLevelDyn" type="bool" value="false" />
+        <param name="delay_df"    type="double" value="0.0" />
+        <param name="delay_a"     type="double" value="0.0" />
+
+        <!-- simulator sensor noise -->
+        <param name="n_bound_pr"     type="double" value="2.0" />
+        <param name="x_std_pr"       type="double" value="0.0034" />
+        <param name="y_std_pr"       type="double" value="0.0034" />
+        <param name="psi_std_pr"     type="double" value="0.005" />
+
+        !--<param name="vx_std_pr"       type="double" value="0.005" />
+        <param name="vy_std_pr"       type="double" value="0.0045" />
+        <param name="psiDot_std_pr"  type="double" value="0.0035" /> -->
+
+        <param name="vx_std_pr"       type="double" value="0.0" />
+        <param name="vy_std_pr"       type="double" value="0.0" />
+        <param name="psiDot_std_pr"  type="double" value="0.0" />
+
+
+
+        <param name="n_bound"     type="double" value="2.0" />
+        <param name="x_std"       type="double" value="0.035" />
+        <param name="y_std"       type="double" value="0.035" />
+        <param name="psi_std"     type="double" value="0.087" />
+        <param name="vx_std"       type="double" value="0.008" />
+        <param name="vy_std"       type="double" value="0.08" />
+        <param name="psiDot_std"  type="double" value="0.03" />
+        <param name="du_0"        type="double" value="0.1" />
+        <param name="du_1"        type="double" value="0.05" />
+        <param name="u_bound"     type="double" value="1.0" />
+
+        <!-- simulator disturbance parameters -->
+
+        <param name="dist_mode"  type="bool"     value="0" />
+        <param name="mu_sf"      type="double"   value="0.1"/>
+        <param name="Cd"         type="double"   value="0.020"/>
+        <param name="A_car"      type="double"   value="0.03"/>  
+
+        <param name="init_vx"    type="double" value="0.0" />
+        <param name="init_x"    type="double" value="0.0" />
+        <param name="init_y"    type="double" value="0.0" />
+        <param name="init_yaw"  type="double" value="0.0" />
+        <param name="mode"        type="str"     value="simulations" />
+    	<param name="halfWidth"        type="double"   value="0.5" />
+ 
+
+
+</launch>
